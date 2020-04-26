@@ -52,14 +52,14 @@ cleanColNames <- function(name) {
 }
 names(dataset) <- sapply(names(dataset), cleanColNames)
 
-write.csv(dataset, "dataset_step_4.csv")
+write.table(dataset, "dataset_step_4.txt")
 
 ##### STEP 5 #####
 # Creating a dataset with the mean of each variable grouped by activity and then subject.
 by_activity_subject <- group_by(dataset, activity, subject)
 dataset5 <- summarise_all(by_activity_subject, mean)
 
-write.csv(dataset5, "dataset_step_5.csv")
+write.table(dataset5, "dataset_step_5.txt")
 
 
 
