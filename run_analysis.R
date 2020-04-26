@@ -59,7 +59,7 @@ write.table(dataset, "dataset_step_4.txt")
 by_activity_subject <- group_by(dataset, activity, subject)
 dataset5 <- summarise_all(by_activity_subject, mean)
 
-write.table(dataset5, "dataset_step_5.txt")
+write.table(dataset5, "dataset_step_5.txt", row.names = FALSE)
 
 
 
