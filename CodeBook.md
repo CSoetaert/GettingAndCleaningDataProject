@@ -1,29 +1,46 @@
 #CODE BOOK
 
-For this project, I modified the data provided by this study http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones the way it is described below. 
+There is 2 datasets: dataset_step_4.txt and dataset_step_5.txt
 
-## Extracting the features name
+The variables are based on the one provided for the project. 
+The 2 following variables are the same for both datasets:
+- activity: the activity done by the subject when the observations were done.
+- subject: the subject identification number.
 
-First I extracted the features names from the file "features.txt" provided with the data. I cleaned the name from un accepted character, to use them as columns name for the datasets.
+For dataset_step_4, there is also the mean and std of the measure taken as explained in the "features_info.txt"
 
-## Extracting the data from the train and test set and then join them
+-------------
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
-Then I extracted the subjects, activities and parameters values from the file for the train and test set. Once I had created a data frame for each of the sets, I joined them in one data set. 
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
 
-## Keeping only the STD and MEAN values
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
 
-After that, I selected the parameters representing the mean and std of the observations using a regular expression. 
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-## Using activity names
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
 
-Then, I replaced the activity value (number), by there name using the "activity.txt" file provided.
+The set of variables that were estimated from these signals are: 
 
-## Cleaning columns names and saving dataset
+mean(): Mean value
+std(): Standard deviation
+------------
 
-The next step was to clean the name of the columns to make it more understandable to the human eye and then saving the dataset. 
-The name for the parameters keep the same method of naming as for the original dataset. 
-Finally, I saved the dataset into a csv file called "dataset_step_4.csv". 
-
-## Summarising the dataset
-
-The final step was to group the data set by activity and then subject and the computing the average of each parameter. This is saved in the "dataset_step_5.csv" file.
+For dataset_step_5, the variables where grouped by activity and subject. The other values are an average of the variable for each group. 
